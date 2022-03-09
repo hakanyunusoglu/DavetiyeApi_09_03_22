@@ -1,0 +1,48 @@
+﻿@model IEnumerable<DavetiyeApiUi.Models.Davetiye>
+
+@{
+    ViewData["Title"] = "Katılmayanlar";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isim)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gelmeDurumu)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isim)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gelmeDurumu)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit",null, new { id=item.id }, new {@class="btn btn-warning" }) |
+                @Html.ActionLink("Details", "Details", null, new { id = item.id }, new { @class = "btn btn-info" }) |
+                @Html.ActionLink("Delete", "Delete", null, new { id = item.id }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
